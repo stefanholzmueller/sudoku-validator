@@ -1,7 +1,8 @@
 package sudoku;
 
-import io.vavr.collection.List;
-import io.vavr.control.Option;
+
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public enum Numbers {
 
@@ -25,8 +26,8 @@ public enum Numbers {
         return this.string;
     }
 
-    public static Option<Numbers> fromString(String str) {
-        return List.of(values()).find(n -> n.getString().equals(str));
+    public static Optional<Numbers> fromString(String str) {
+        return Stream.of(values()).filter(n -> n.getString().equals(str)).findFirst();
     }
 
 }

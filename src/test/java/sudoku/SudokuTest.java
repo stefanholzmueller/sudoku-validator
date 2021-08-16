@@ -1,7 +1,8 @@
 package sudoku;
 
-import io.vavr.collection.List;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static sudoku.Numbers.*;
@@ -20,7 +21,8 @@ class SudokuTest {
             "8,9,1,2,3,4,5,6,7",
             "9,1,2,3,4,5,6,7,8"
     );
-    private final Sudoku testSudoku = new Sudoku(Validator.parseStructure(testCsv).get());
+    private final Validator validator = new Validator();
+    private final Sudoku testSudoku = new Sudoku(validator.parseStructure(testCsv).get());
 
     @Test
     void getFirstRow() {

@@ -1,10 +1,10 @@
-import io.vavr.collection.List;
 import sudoku.Validator;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class Main {
 
@@ -15,9 +15,10 @@ public class Main {
         if (!Files.isReadable(path))
             terminateWithError("File '" + path + "' is not readable");
 
-        List<String> lines = List.ofAll(Files.readAllLines(path));
+        List<String> lines = Files.readAllLines(path);
 
-        List<String> errors = Validator.validate(lines);
+        Validator validator = new Validator();
+        List<String> errors = validator.validate(lines);
 
         if (errors.isEmpty())
             System.exit(0);

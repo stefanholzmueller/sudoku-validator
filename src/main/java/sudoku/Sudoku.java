@@ -1,8 +1,8 @@
 package sudoku;
 
-import io.vavr.collection.List;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sudoku {
 
@@ -23,7 +23,7 @@ public class Sudoku {
         for (int r = 0; r < size; r++) {
             numbers.add(grid[r][c]);
         }
-        return List.ofAll(numbers);
+        return numbers;
     }
 
     public List<Numbers> getBlock(int row, int col) {
@@ -33,7 +33,7 @@ public class Sudoku {
                 numbers.add(grid[r][c]);
             }
         }
-        return List.ofAll(numbers);
+        return numbers;
     }
 
 }

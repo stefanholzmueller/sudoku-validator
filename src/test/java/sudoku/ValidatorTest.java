@@ -1,14 +1,16 @@
 package sudoku;
 
-import io.vavr.collection.List;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ValidatorTest {
 
     private void assertErrors(List<String> lines, List<String> expectedErrors) {
-        List<String> errors = Validator.validate(lines);
+        Validator validator = new Validator();
+        List<String> errors = validator.validate(lines);
         assertEquals(expectedErrors, errors);
     }
 
@@ -281,7 +283,7 @@ class ValidatorTest {
                         "3,4,5,6,7,8,9,1,2",
                         "6,7,8,9,1,2,3,4,5"
                 ),
-                List.empty()
+                List.of()
         );
     }
 
